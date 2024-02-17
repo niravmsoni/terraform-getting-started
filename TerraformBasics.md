@@ -25,3 +25,12 @@
        - Data sources
           - Information we might want to use in our configuration. Readonly resource. For ex - List of current available Availability zones, regions, AMI etc.
           
+    - Terraform uses Block Syntax
+```
+block_type "label" "name_label" {
+key = "value"
+nested_block {
+    key = "value"
+    }
+}
+```

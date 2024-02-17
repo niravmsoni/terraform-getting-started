@@ -32,4 +32,4 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
     -  Terraform is DECLARATIVE in nature 
 ### 4. Idempotent and consistent
     - Consistency - Everytime we do something, the result should be same
-    - Idempotent - If we provision a VM, and next time, if we ask for the same VM, Terraform tells us we already have it created. It is Aware of the resource history (Using a state file).
+    - Idempotent - If we provision a VM, and next time, if we ask for the same VM, Terraform tells us we already have it created. It is Aware of the resource history (Using a state file). If we have not changed any configuration against a resource and if we again apply it against the same environment, nothing will change in environment because a resource with required configuration already exists 

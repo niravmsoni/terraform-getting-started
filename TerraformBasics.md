@@ -15,4 +15,4 @@
         - Provider plugins
             - Used by Terraform to talk to various cloud providers (AWS Providers, Azure etc.)
         - State Data
-            - Stores information about resources provisioned.
+            - Stores information about resources provisioned. When we execute Terraform apply, terraform checks existing state file and compares the differences. Based on differences, it will either add, update or delete resources

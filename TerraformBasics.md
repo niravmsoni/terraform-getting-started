@@ -16,3 +16,12 @@
             - Used by Terraform to talk to various cloud providers (AWS Providers, Azure etc.)
         - State Data
             - Stores information about resources provisioned. When we execute Terraform apply, terraform checks existing state file and compares the differences. Based on differences, it will either add, update or delete resources
+
+    - Terraform Object Types
+       - Providers
+          - Provide details about the provider we want to use (AWS, Azure, GCP). Going to use AWS provider. Credentials and regions to use
+       - Resources
+          - Each resoure is associated with provider and we need to supply configurations to it. Could be EC2, VNet, DB etc.
+       - Data sources
+          - Information we might want to use in our configuration. Readonly resource. For ex - List of current available Availability zones, regions, AMI etc.
+          

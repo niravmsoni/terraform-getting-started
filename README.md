@@ -33,3 +33,6 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
 ### 4. Idempotent and consistent
     - Consistency - Everytime we do something, the result should be same
     - Idempotent - If we provision a VM, and next time, if we ask for the same VM, Terraform tells us we already have it created. It is Aware of the resource history (Using a state file). If we have not changed any configuration against a resource and if we again apply it against the same environment, nothing will change in environment because a resource with required configuration already exists 
+
+### 5. Push or Pull
+     - Push - Terraform follows a push model. Whatever configurations are requested by the user, terraform creates resource based on it. If it was pull based, there would be agents running on the cloud provider regularly polling for changes from IaC tools (Terraform, Pulumi etc.)

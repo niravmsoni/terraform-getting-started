@@ -45,6 +45,7 @@ size = 40
    }
 }
 ```
+
 Explanation
     - "aws_instance" - Type of resource that we are seeking to deploy
     - "web_server" - Name of this instance that can be referred in Terraform code
@@ -57,3 +58,13 @@ Explanation
 - Single line comments - Using #
 - We can use the same name label for multiple resources (For ex. VPC, subnets, their route tables etc.)
 - However, same name label cannot be used for same type of resources (For ex. 2 EC2 instances with same name label) - Terraform will throw error
+
+Terraform Workflow
+- terraform init
+  - Looks for configuration files inside working directory and sees if it needs any provider plugins. If needed, it will download plugin data from public terraform registry (Unless we specify any other registry)
+  - Store state file in specified backend (Local directory or Remote)
+- terraform plan
+  - Terraform examines current state file and the resources requested for deployment and identify the differences
+  - It will tell us what actions will the terraform perform (x to add, y to change, z to delete)
+  - This is Optional but generally recommended to check what changes terraform is going to make to our resources
+

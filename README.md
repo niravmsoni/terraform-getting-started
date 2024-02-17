@@ -5,9 +5,9 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
 
 ### Core Concepts
 
-#### All Infrastructure resources  - Defined in Code
-#### Store infrastructure related code in a Source control (Git)
-#### Declarative vs Imperative - 
+#### 1. All Infrastructure resources  - Defined in Code
+#### 2. Store infrastructure related code in a Source control (Git)
+#### 3. Declarative vs Imperative - 
 ##### Imperative 
      - If we want to create a Sandwich, if underlying language is imperative, we need to provide it with exact steps and assembling them together such as
      - Get ingredients
@@ -29,5 +29,7 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
      ingredients = ["bread", "vegetables","potato"]
      }
      `
-
-### Terraform is DECLARATIVE in nature 
+    -  Terraform is DECLARATIVE in nature 
+### 4. Idempotent and consistent
+    - Consistency - Everytime we do something, the result should be same
+    - Idempotent - If we provision a VM, and next time, if we ask for the same VM, Terraform tells us we already have it created. It is Aware of the resource history (Using a state file).

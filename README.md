@@ -1,3 +1,3 @@
 # Terraform-getting-started
-    - [IaC Overview](Getting-Started.md)
-    - [Terraform Basics](TerraformBasics.md)
+- [IaC Overview](Getting-Started.md)
+- [Terraform Basics](TerraformBasics.md)

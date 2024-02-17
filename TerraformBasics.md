@@ -67,4 +67,11 @@ Terraform Workflow
   - Terraform examines current state file and the resources requested for deployment and identify the differences
   - It will tell us what actions will the terraform perform (x to add, y to change, z to delete)
   - This is Optional but generally recommended to check what changes terraform is going to make to our resources
-
+  - Terraform generates an execution plan. We can save this in a file and feed it in the next step
+- terraform apply
+  - Assuming we ran terraform plan and saved changes in a file, terraform simply executes those changes using provider plugins
+  - Resources will be added/updated/deleted based on configuration and then state file will be updated
+  - If we run terraform plan/apply without making any changes, terraform will tell us there are no changes detected since configuration and state data matches
+- terraform destroy
+  - If we are done with environment, we can execute this command
+  - Terraform will destroy all resources present in state file. This is dangerous command. Should be used with caution

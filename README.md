@@ -1,3 +1,14 @@
 # Terraform-getting-started
 - [IaC Overview](Getting-Started.md)
 - [Terraform Basics](TerraformBasics.md)
+- What are we provisioning?
+- There are 7 resources that would be created
+  - VPC
+  - Internet Gateway
+  - Subnet
+  - Route Table
+  - Route Table Association
+  - Security Group
+  - EC2 instance
+  - Output
+    - ![15_Works](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/8ca66379-d266-4046-8fb5-9495dc7008ab)

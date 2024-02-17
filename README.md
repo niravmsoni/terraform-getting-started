@@ -1,2 +1,2 @@
 # Terraform-getting-started
-[Getting started with Terraform](Getting-Started.md)
+[IaC Overview](Getting-Started.md)

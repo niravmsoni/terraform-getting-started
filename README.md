@@ -17,3 +17,6 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
         - Put vegetables within bread
         - Put potato in bread
         - Grill
+
+#### Declarative - If we want to create a Sandwich, if underlying language is declarative, the underlying person has knowledge about making sandwich and we do not need to provide with exact steps
+    - We can just provide our configurations/ingredients we need in sandwich and then the code/person making sandwich should be able to figure out the steps to make a sandwich for us

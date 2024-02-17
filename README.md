@@ -36,3 +36,10 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
 
 ### 5. Push or Pull
      - Push - Terraform follows a push model. Whatever configurations are requested by the user, terraform creates resource based on it. If it was pull based, there would be agents running on the cloud provider regularly polling for changes from IaC tools (Terraform, Pulumi etc.)
+
+
+### Benefits of IaC
+     - Reusability - Write code to provision infrastructure once and reuse it (For different environments)
+     - Automated deployments - Integrate it with CI/CD pipeline and ensure resources are getting created automatically without manual intervention from portal
+     - Repeatable and consistent - Everytime we need an update to a resource, we update the configuration and deploy. This will ensure resource is consistent on all environments (Dev, QA, Perf, Prod)
+     - Documented architecture - We have our infrastructure architecture well documented 

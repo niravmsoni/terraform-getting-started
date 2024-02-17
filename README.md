@@ -29,3 +29,5 @@ IaC - Provisioning infrastructure through SW to achieve consistent, repeatable a
      ingredients = ["bread", "vegetables","potato"]
      }
      `
+
+### Terraform is DECLARATIVE in nature 

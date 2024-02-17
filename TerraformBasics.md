@@ -34,3 +34,18 @@ nested_block {
     }
 }
 ```
+
+[Visualizing EC2 instance via Terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance)
+```
+resource "aws_instance" "web_server" {
+name = "web_server"    # We see this name in AWs console
+ebs_volume {
+size = 40 
+   }
+}
+```
+    - Explanation
+        - "aws_instance" - Type of resource that we are seeking to deploy
+        - "web_server" - Name of this instance that can be referred in Terraform code
+        - "name="web_server" - This is the name that would be present in AWS console
+        - "ebs_volume" - This would be provisioned and attached to EC2 instance with size as 40 GiB

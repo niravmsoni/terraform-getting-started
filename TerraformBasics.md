@@ -68,10 +68,15 @@ Terraform Workflow
   - It will tell us what actions will the terraform perform (x to add, y to change, z to delete)
   - This is Optional but generally recommended to check what changes terraform is going to make to our resources
   - Terraform generates an execution plan. We can save this in a file and feed it in the next step
+  - Command - terraform plan -out <fileName>.tfPlan 
+  - Do note - Extension is not mandatory. .tfPlan is generally considered as best-practice 
 - terraform apply
   - Assuming we ran terraform plan and saved changes in a file, terraform simply executes those changes using provider plugins
   - Resources will be added/updated/deleted based on configuration and then state file will be updated
   - If we run terraform plan/apply without making any changes, terraform will tell us there are no changes detected since configuration and state data matches
+  - Command - terraform apply "planName"
+  - Do note - If we have out plan name in tfPlan file, we could supply the same file here in terraform apply. This way, it will simply execute whatever plan was captured in this plan file
+  - If we do not specify plan name, terraform would internally execute terraform plan and then ask for approval (Yes/No) and then work on actual resource creation
 - terraform destroy
   - If we are done with environment, we can execute this command
   - Terraform will destroy all resources present in state file. This is dangerous command. Should be used with caution

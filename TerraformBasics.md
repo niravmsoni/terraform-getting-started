@@ -2,3 +2,17 @@
     - Infrasturcture automation tool
     - Open source - Maintained by Hashicorp. There are enterprise versions available such as Terraform Cloud AND Terraform Enterprise
     - Vendor Agnostic - Use with AWS, Azure, GCP, VMWare etc.
+    - Terraform code? - Single Binary Compiled in Go
+    - Declarative syntax
+    - Configuration files written in HCL (Hashicorp Configuration Language) OR JSON. Preferred is HCL
+    - Push style deployment
+    - 4 Core components of Terraform
+        - Executable
+            - Single binary file we invoke to run terraform. Contains all TF functionality
+        - Configuration file
+            - 1..* configuration files with .tf extension
+            - Terraform scans all files and stitches a configuration together based on contents
+        - Provider plugins
+            - Used by Terraform to talk to various cloud providers (AWS Providers, Azure etc.)
+        - State Data
+            - Stores information about resources provisioned.

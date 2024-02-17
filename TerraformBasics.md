@@ -55,3 +55,5 @@ Explanation
 - <resource_type>.<name_label>.<attribute>
 - For getting name of AWS EC2 instance that we just created above, use aws_instance.web_server.name - Using this we will get value of name property i.e. webserver
 - Single line comments - Using #
+- We can use the same name label for multiple resources (For ex. VPC, subnets, their route tables etc.)
+- However, same name label cannot be used for same type of resources (For ex. 2 EC2 instances with same name label) - Terraform will throw error

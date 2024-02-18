@@ -3,5 +3,11 @@
     - Improve code
         - Remove AWS credentials from code file
         - Replace hard-coded values
+            - Examine main.tf file, identified hard-coded values & defined variables for them
         - Add default Tags for company, project and billing
+            - Tag details
+                - Company - Default to "Nirav Corporation"
+                - Project - "Company-project"-  No defaults
+                - Billing Code tag - No defaults
+
         - Generate output for public DNS hostname (Using Output variables)

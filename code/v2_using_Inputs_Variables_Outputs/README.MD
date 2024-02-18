@@ -15,7 +15,9 @@
         - Generate output for public DNS hostname
             - Using Outputs
 
-    - [Contents](InputVariablesAndOutput.md)
+    - Technical Content
+        - Refer [here](InputVariablesAndOutput.md)
+        
     - To run this configuration
         - Set environment variables 
             - On Windows -  

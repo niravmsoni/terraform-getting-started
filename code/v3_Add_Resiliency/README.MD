@@ -4,3 +4,6 @@
         - Put both EC2 instances behind load balancers
         - Enhance code readability
             - Put resources in separate files such as networking, instances, load balancers etc.
+
+
+    - Updated Architecture - 

@@ -15,7 +15,7 @@
         - Generate output for public DNS hostname
             - Using Outputs
 
-    - Details here - [ReadMe](InputVariablesAndOutput.md)
+    [README](InputVariablesAndOutput.md)
     - To run this configuration
         - Set environment variables 
             - On Windows -  

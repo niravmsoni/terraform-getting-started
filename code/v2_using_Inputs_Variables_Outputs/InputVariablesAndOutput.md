@@ -13,5 +13,5 @@
         - Outputs are defined in configuration and value of each output depends on what it references within configuration
         - Output can be constructed from more than 1 element
 
-Refer [Input Variables](InputVariables.md)
-Refer [Terraform Data types](DataTypes.md) 
+- Refer [Input Variables](InputVariables.md)
+- Refer [Terraform Data types](DataTypes.md) 

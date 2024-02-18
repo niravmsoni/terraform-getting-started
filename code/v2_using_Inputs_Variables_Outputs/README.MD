@@ -15,3 +15,12 @@
         - Generate output for public DNS hostname
             - Using Outputs
         
+    - To run this configuration
+        - Set environment variables 
+            - On Windows -  
+                - $env:TF_VAR_aws_secret_key="<Key>"
+                - $env:TF_VAR_aws_access_key="<Access Key>"
+        - Rest all variables are present in terraform.tfVars file
+        - Init
+        - Plan and Apply
+        - Destroy

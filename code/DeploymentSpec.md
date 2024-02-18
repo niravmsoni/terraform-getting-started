@@ -8,4 +8,4 @@
   - Route Table Association
   - Security Group
   - EC2 Instance
-    
+- All values are Hardcoded

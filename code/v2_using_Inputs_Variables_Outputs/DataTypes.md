@@ -1,4 +1,4 @@
-#Terraform Data Types
+# Terraform Data Types
 - We can group data types into 3 different categories
     - Primitive
         - String, number, bool

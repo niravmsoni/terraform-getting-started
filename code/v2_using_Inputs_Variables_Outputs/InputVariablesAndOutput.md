@@ -14,3 +14,4 @@
         - Output can be constructed from more than 1 element
 
 Refer [Input Variables](InputVariables.md)
+Refer [Terraform Data types](DataTypes.md) 

@@ -1,5 +1,5 @@
 # What's changing in V2?
-    - Keep architecture as-is
+    - Keepingarchitecture as-is. Work towards making the code modular
     - Improve code
         - Remove AWS credentials from code file
         - Replace hard-coded values

@@ -17,3 +17,17 @@
     - Local (By-default)
     - Remote (AWS S3/Azure Blob storage/NFS Share/Terraform cloud etc.)
         - Useful in collaborative environment (Corporate teams to provision their infra) and also move state data off local machine for safety sake
+
+- Commonly used State commands
+    - terraform state list
+        - List all resources managed by terraform
+    - terraform state show ADDRESS
+        - Show specific resource. If we want to know more about a resource type. - Supply "resourceType.<name_label>"
+    - terraform state mv SOURCE DESTINATION
+        - Move item in state
+            - Useful when we want to rename a resource or Move them to modules
+    - terraform state rm ADDRESS
+        - Remove resource from terraform without actually destroying it
+        - Remove resource from configuration and then remove state
+    
+- GOLDEN RULE - Make ALL CHANGES WITH TERRAFORM - Do not touch managed resources with cloud console or CLI. Make sure changes go through only via Terraform

@@ -6,7 +6,6 @@ data "aws_ssm_parameter" "amzn2_linux" {
   name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
 }
 
-
 # INSTANCES #
 # Creating AWS EC2 instance - Taking AMI from Data, using t2.micro as instance type, placing in subnet created earlier and assigning security groups
 resource "aws_instance" "nginx1" {

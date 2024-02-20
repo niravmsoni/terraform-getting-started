@@ -3,7 +3,8 @@
 - What we would be adding?
 
 - Data source
-    - [aws_availability_zones](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) - List of current AZs
+    - [aws_availability_zones](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) 
+        - Allows access to list of AWS AZ which can be accessed by AWS account within region configured
 
 - Load balancer resources
     - [aws_lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) - Application load balancer

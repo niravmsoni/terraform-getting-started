@@ -15,6 +15,7 @@
         - Attribute Reference
             - Data source exports following attributes
             - For ex - group_names, id, names, zone_ids etc.
+            - Each attribute starts with the data type that it holds
         - Timeout
             - Any timeout associated with resource
 

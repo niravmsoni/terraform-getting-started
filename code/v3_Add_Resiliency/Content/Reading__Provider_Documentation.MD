@@ -8,7 +8,7 @@
         - Description
             - Tells us brief information about what a resource does?
         - Example usage
-            - Examples
+            - Examples Below
         - Argument Reference
             - Configuration arguments that are supported. These values can be used inside aws_availability_zones block
             - For ex - all_availability_zones, filter state etc. (Refer below)

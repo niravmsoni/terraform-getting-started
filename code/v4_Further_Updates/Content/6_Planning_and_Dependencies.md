@@ -31,3 +31,5 @@
         - For EC2 instance to access S3 bucket, it has a reference of aws_iam_instance_profile
         - However, for it to be able to successfuly access S3 bucket, it also needs to wait till aws_iam_role is created
         - This is where we need to explicitly add "depends_on"
+
+![image](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/c23ab52e-0568-476c-9a20-56106bb4e39e)

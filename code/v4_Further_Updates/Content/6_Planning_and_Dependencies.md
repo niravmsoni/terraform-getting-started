@@ -33,3 +33,7 @@
         - This is where we need to explicitly add "depends_on"
 
 ![image](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/c23ab52e-0568-476c-9a20-56106bb4e39e)
+
+    - Meta-argument
+        - Argument in resource or data source that instructs terraform on managing object and is not used by provider to configure target object
+        - Example - "depends_on"

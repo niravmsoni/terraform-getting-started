@@ -12,6 +12,6 @@
         - Load balancer configuration supports logging to S3. We will use same bucket and grant LB principal access to write files
 
     - Updated Architecture
-
-    ![image](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/986ab762-3989-4dea-af9b-2a81e594c287)
+    
+![image](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/986ab762-3989-4dea-af9b-2a81e594c287)
 

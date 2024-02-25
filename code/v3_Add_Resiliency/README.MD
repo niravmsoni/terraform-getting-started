@@ -6,5 +6,6 @@
             - Put resources in separate files such as networking, instances, load balancers etc.
 
 - Updated Architecture
-
 ![File](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/9b7e696b-639a-4be0-888c-5492b3f9b2c6)
+
+- Output

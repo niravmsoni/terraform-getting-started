@@ -11,3 +11,7 @@
 
 - Output
 
+    - Requests now get served by 2 instances sitting behind load balancer
+
+![Instance 1](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/900cb988-7ab4-480d-b8bb-b1f4001e7c2d)
+![Instance 2](https://github.com/niravmsoni/terraform-getting-started/assets/6556021/58c95779-94ef-4b62-8ca4-2d5559f738e9)

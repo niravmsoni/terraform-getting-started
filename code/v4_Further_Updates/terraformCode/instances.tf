@@ -16,7 +16,7 @@ resource "aws_instance" "nginx1" {
   iam_instance_profile   = aws_iam_instance_profile.nginx_profile.name
   depends_on             = [aws_iam_role_policy.allow_s3_all]
   tags                   = local.common_tags
-  user_data = <<EOF
+  user_data              = <<EOF
 #! /bin/bash
 sudo amazon-linux-extras install -y nginx1
 sudo service nginx start
@@ -37,7 +37,7 @@ resource "aws_instance" "nginx2" {
   iam_instance_profile   = aws_iam_instance_profile.nginx_profile.name
   depends_on             = [aws_iam_role_policy.allow_s3_all]
   tags                   = local.common_tags
-  user_data = <<EOF
+  user_data              = <<EOF
 #! /bin/bash
 sudo amazon-linux-extras install -y nginx1
 sudo service nginx start
@@ -68,7 +68,7 @@ resource "aws_iam_role" "allow_nginx_s3" {
   ]
 }
 EOF
-  tags = local.common_tags
+  tags               = local.common_tags
 }
 
 # aws_iam_role_policy

@@ -40,7 +40,7 @@ resource "aws_subnet" "public_subnet2" {
   vpc_id                  = aws_vpc.app.id
   map_public_ip_on_launch = var.map_public_ip_on_launch
   tags                    = local.common_tags
-  availability_zone = data.aws_availability_zones.available.names[1]
+  availability_zone       = data.aws_availability_zones.available.names[1]
 }
 
 # Creating route table and associate with VPC
@@ -74,9 +74,9 @@ resource "aws_security_group" "nginx_sg" {
 
   # HTTP access from anywhere
   ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
+    from_port = 80
+    to_port   = 80
+    protocol  = "tcp"
     # Making this change since now, EC2 instance should receive traffic from addresses within VPC
     cidr_blocks = [var.vpc_cidr_block]
   }

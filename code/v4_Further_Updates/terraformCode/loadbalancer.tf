@@ -1,5 +1,7 @@
-#aws_lb
+#aws_elb_service_account
 
+
+#aws_lb
 resource "aws_lb" "nginx" {
   name               = "nirav_web_alb"
   internal           = false

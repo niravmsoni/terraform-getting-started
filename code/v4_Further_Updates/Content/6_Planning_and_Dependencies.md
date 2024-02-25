@@ -25,5 +25,9 @@
             - Since subnet Id is also unknown before creation, So, TF will wait for creating this resource until subnet is provisioned
     
     - Thus, terraform infers or knows about this dependency on its own. We do not need to tell terraform explicitly about it
-    - But sometimes, dependency is non-obvious and we need to instruct terraform explicitly about it
-    
+    - But sometimes, dependency is non-obvious and we need to instruct terraform explicitly about it. 
+    - Refer below usecase
+        - aws_iam_instance_profile and _aws_iam_role_policy have a reference of aws_iam_role
+        - For EC2 instance to access S3 bucket, it has a reference of aws_iam_instance_profile
+        - However, for it to be able to successfuly access S3 bucket, it also needs to wait till aws_iam_role is created
+        - This is where we need to explicitly add "depends_on"

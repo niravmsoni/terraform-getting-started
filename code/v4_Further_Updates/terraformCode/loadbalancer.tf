@@ -8,9 +8,15 @@ resource "aws_lb" "nginx" {
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
   subnets            = [aws_subnet.public_subnet1.id, aws_subnet.public_subnet2.id]
+  depends_on         = [aws_s3_bucket_policy.web_bucket]
   
   enable_deletion_protection = false
-
+  
+  access_logs {
+    bucket  = aws_s3_bucket.web_bucket.bucket
+    prefix  = "alb-logs"
+    enabled = true
+  }
   tags = local.common_tags
 }
 

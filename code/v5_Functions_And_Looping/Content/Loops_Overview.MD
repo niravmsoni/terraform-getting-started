@@ -40,5 +40,58 @@ resource "aws_instance" "web_servers"{
 How to reference this?
 <resource_type>.<name_label>[element].<attribute>
 aws_instance.web_servers[0].name    # string - Returns name of first instance
-aws_instance.web_servers[*0*].name    # list(string) - Returns names of all instances
+aws_instance.web_servers[*].name    # list(string) - Returns names of all instances. Called as Splat index
+
 ```
+
+- For_each Syntax
+    - Value for For_each would be either set or map
+        - Set = unordered collection of unique objects
+    - For_each has 2 special expressions
+        - each.key
+        - each.value
+
+    - Example below
+
+```
+s3.tf
+
+# Terraform creates 2 S3 buckets
+resource "aws_s3_object" "taco_toppings"{
+    for_each = {
+        cheese = "cheese.png"
+        lettuce = "lettuce.png"
+    }
+    key = each.value
+    source = "./${each.value}"
+    tags = {
+        Name = each.key
+    }
+}
+
+How to reference it?
+<resource_type>.<name_label>[key].<attribute>
+aws_s3_object.taco_toppings["cheese"].id    # Returns Id for Single instance
+
+```
+
+- Looping Targets
+    - What can we update in our configuration?
+        - Primary Resources
+            - aws_subnets 
+                - Right now, there are 2 public subnets. Going forward this can change.
+                - Only difference is CIDR Range and AZ
+                - Can use Count loop
+            - aws_instance
+                - Multiple EC2 instances
+                - Difference - Subnet
+                - Can use Count loop
+            - aws_s3_bucket_object
+                - S3 bucket objects
+                - Have different names and paths
+                - Can use For_each here
+        - Impacted resources (Due to above change)
+            - aws_route_table_association
+            - aws_lb_target_group_attachment
+            
+

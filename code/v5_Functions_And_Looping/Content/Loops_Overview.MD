@@ -19,3 +19,26 @@
 - Dynamic Blocks
     - Used to create multiple instances of a nested block inside a parent object
     - Take in map or set for a value to construct blocks
+
+- Count Syntax
+    - Goes inside resource block and accepts int as value
+    - When count is used, a special new expression is available namely "count.index"
+    - Index Starts with 0. When TF loops through this resource, TF resolves and gives us current iterating value as index
+    - Example below
+    
+```
+instances.tf
+
+# Creates 3 EC2 instances
+resource "aws_instance" "web_servers"{
+    count = 3
+    tags = {
+        Name = "nirav-web-${count.index}"
+    }
+}
+
+How to reference this?
+<resource_type>.<name_label>[element].<attribute>
+aws_instance.web_servers[0].name    # string - Returns name of first instance
+aws_instance.web_servers[*0*].name    # list(string) - Returns names of all instances
+```

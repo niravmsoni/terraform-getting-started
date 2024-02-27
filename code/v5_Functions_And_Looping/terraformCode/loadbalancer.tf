@@ -45,14 +45,22 @@ resource "aws_lb_listener" "nginx_lb_listener" {
 }
 
 #aws_lb_target_group_attachment
-resource "aws_lb_target_group_attachment" "nginx1" {
+resource "aws_lb_target_group_attachment" "nginx" {
+  count            = var.instance_count 
   target_group_arn = aws_lb_target_group.nginx_lb_tg.arn
-  target_id        = aws_instance.nginx1.id
+  target_id        = aws_instance.nginx[count.index].id
   port             = 80
 }
 
-resource "aws_lb_target_group_attachment" "nginx2" {
-  target_group_arn = aws_lb_target_group.nginx_lb_tg.arn
-  target_id        = aws_instance.nginx2.id
-  port             = 80
-}
+
+# resource "aws_lb_target_group_attachment" "nginx1" {
+#   target_group_arn = aws_lb_target_group.nginx_lb_tg.arn
+#   target_id        = aws_instance.nginx1.id
+#   port             = 80
+# }
+
+# resource "aws_lb_target_group_attachment" "nginx2" {
+#   target_group_arn = aws_lb_target_group.nginx_lb_tg.arn
+#   target_id        = aws_instance.nginx2.id
+#   port             = 80
+# }

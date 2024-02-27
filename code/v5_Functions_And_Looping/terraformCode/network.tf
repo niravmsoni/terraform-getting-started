@@ -24,24 +24,34 @@ resource "aws_internet_gateway" "app" {
   tags   = local.common_tags
 }
 
-# Creating first subnet in a AZ1
-resource "aws_subnet" "public_subnet1" {
-  cidr_block              = var.vpc_public_subnets_cidr_block[0]
+# Creating both subnets (Using Count)
+resource "aws_subnet" "public_subnets" {
+  count                   = var.vpc_public_subnet_count
+  cidr_block              = var.vpc_public_subnets_cidr_block[count.index]
   vpc_id                  = aws_vpc.app.id
   map_public_ip_on_launch = var.map_public_ip_on_launch
   tags                    = local.common_tags
-  # Assigning Subnet-1 with first Availability zone retrieved from data (We get this information from AWS provider based on region we have configured)
-  availability_zone = data.aws_availability_zones.available.names[0]
+  availability_zone = data.aws_availability_zones.available.names[count.index]
 }
 
-# Creating another subnet in a AZ2
-resource "aws_subnet" "public_subnet2" {
-  cidr_block              = var.vpc_public_subnets_cidr_block[1]
-  vpc_id                  = aws_vpc.app.id
-  map_public_ip_on_launch = var.map_public_ip_on_launch
-  tags                    = local.common_tags
-  availability_zone       = data.aws_availability_zones.available.names[1]
-}
+# Commenting public_subnet1 and public_subnet2 since we are going to create both of them using count loop
+# resource "aws_subnet" "public_subnet1" {
+#   cidr_block              = var.vpc_public_subnets_cidr_block[0]
+#   vpc_id                  = aws_vpc.app.id
+#   map_public_ip_on_launch = var.map_public_ip_on_launch
+#   tags                    = local.common_tags
+#   # Assigning Subnet-1 with first Availability zone retrieved from data (We get this information from AWS provider based on region we have configured)
+#   availability_zone = data.aws_availability_zones.available.names[0]
+# }
+
+# # Creating another subnet in a AZ2
+# resource "aws_subnet" "public_subnet2" {
+#   cidr_block              = var.vpc_public_subnets_cidr_block[1]
+#   vpc_id                  = aws_vpc.app.id
+#   map_public_ip_on_launch = var.map_public_ip_on_launch
+#   tags                    = local.common_tags
+#   availability_zone       = data.aws_availability_zones.available.names[1]
+# }
 
 # Creating route table and associate with VPC
 resource "aws_route_table" "app" {
@@ -53,17 +63,24 @@ resource "aws_route_table" "app" {
   tags = local.common_tags
 }
 
-# Associating route table with Subnet1
-resource "aws_route_table_association" "app_subnet1" {
-  subnet_id      = aws_subnet.public_subnet1.id
+# Associating route table with both subnets (Using Count)
+resource "aws_route_table_association" "app_public_subnets" {
+  count          = var.vpc_public_subnet_count 
+  subnet_id      = aws_subnet.public_subnets[count.index].id
   route_table_id = aws_route_table.app.id
 }
 
-# Associating route table with Subnet2
-resource "aws_route_table_association" "app_subnet2" {
-  subnet_id      = aws_subnet.public_subnet2.id
-  route_table_id = aws_route_table.app.id
-}
+# # Associating route table with Subnet1
+# resource "aws_route_table_association" "app_subnet1" {
+#   subnet_id      = aws_subnet.public_subnet1.id
+#   route_table_id = aws_route_table.app.id
+# }
+
+# # Associating route table with Subnet2
+# resource "aws_route_table_association" "app_subnet2" {
+#   subnet_id      = aws_subnet.public_subnet2.id
+#   route_table_id = aws_route_table.app.id
+# }
 
 # SECURITY GROUPS #
 # Creating Security group inside VPC

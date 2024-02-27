@@ -6,3 +6,4 @@
   - [Version 2](code/v2_using_Inputs_Variables_Outputs/README.MD)
   - [Version 3](code/v3_Add_Resiliency/README.MD)
   - [Version 4](code/v4_Further_Updates/README.md)
+  - [Functions and Looping](code/v5_Functions_And_Looping/README.md)

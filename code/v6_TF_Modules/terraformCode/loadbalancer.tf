@@ -7,7 +7,9 @@ resource "aws_lb" "nginx" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
-  subnets            = [aws_subnet.public_subnets[*].id]
+  # Replacing subnets from output variable of VPC module
+  subnets            = module.app.public_subnets
+  #subnets            = [aws_subnet.public_subnets[*].id]
   depends_on         = [aws_s3_bucket_policy.web_bucket]
 
   enable_deletion_protection = false
@@ -25,7 +27,7 @@ resource "aws_lb_target_group" "nginx" {
   name     = "${local.naming_prefix}-alb-tg"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = aws_vpc.app.id
+  vpc_id   = module.app.vpc_id
 
   tags = local.common_tags
 }

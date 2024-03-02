@@ -2,3 +2,24 @@
     - terraform console 
         - Opens up interactive terminal
         - We can execute functions and get output instantaneously
+
+    - min(42, 5, 16)
+        - Returns 5
+
+    - cidrsubnet(var.vpc_cidr_block, 8, 0)
+        - Current value of VPC CIDR Block = 10.0.0.0/16
+        - Second argument 8 adds 8 to /16 subnet mask
+        - Output - 10.0.0.0/24
+
+    - cidrsubnet(var.vpc_cidr_block, 8, 1)
+        - We get next available network
+        - Output - 10.0.1.0/24
+
+    - lookup
+        - Used to lookup value in a map
+        - If we execute local.common_tags -> It returns all tags since they are set in map format
+        - If we execute local.common_tags["company"] - It returns value of company
+        - If we execute local.common_tags["missing_key"] - It throws invalid index
+        - Here, if we use lookup(local.common_tags, "missing_key", "unknown_value") - It will not throw invalid index but return unknown_value since that is a default value that we have supplied it to use
+
+    - Always exit console when we are done using it. TF locks state data while console is running

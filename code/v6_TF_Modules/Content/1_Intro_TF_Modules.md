@@ -1,0 +1,18 @@
+# Terraform Modules
+- What are terraform Modules?
+    - Configuration that defines inputs, has resources and/or data sources and some outputs
+    - When we create set of tf or .tf.json files in a directory, they are modules
+    - Main configuration we work with is known as root module
+    - It can invoke other modules to create resources
+    - Modules can form hierarchy with root module at the top
+    - Calling module - Referred too as the parent module and called module is the child module
+    - Child module can be invoked multiple times by parent module by either repeating module block or using count or for_each meta arguments
+    - Flow of information between modules are controlled through input variables and output values
+    - Logical reason for creating modules - Promote code reuse
+    - How can we get hold of modules?
+        - We can create them locally in our file system/source control repository
+        - OR remote registry that follows Hashicorp provider protocol
+        - Common source - [Terraform public registry](https://registry.terraform.io/browse/modules)
+        - Modules on registry are versioned the same way the providers are versioned
+    - Terraform init - Downloads module from registry to working directory
+    - Modules inherit defined providers

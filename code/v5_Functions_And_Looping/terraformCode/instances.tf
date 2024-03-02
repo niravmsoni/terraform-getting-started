@@ -21,7 +21,7 @@ resource "aws_instance" "nginx" {
     Name = "${local.naming_prefix}-nginx-${count.index}"
   })
   # Since we moved startup script to template and pass map argument that replaces s3_bucket_name with actual value
-  user_data              = templatefile("${path.module}/templates/startup_script.tpl", {s3_bucket_name = aws.aws_s3_bucket.web_bucket.id})
+  user_data = templatefile("${path.module}/templates/startup_script.tpl", { s3_bucket_name = aws.aws_s3_bucket.web_bucket.id })
 }
 
 # # Creating AWS EC2 instance - Taking AMI from Data, using t2.micro as instance type, placing in subnet created earlier and assigning security groups
@@ -85,14 +85,14 @@ resource "aws_iam_role" "allow_nginx_s3" {
   ]
 }
 EOF
-tags = merge(local.common_tags, {
+  tags = merge(local.common_tags, {
     Name = "${local.naming_prefix}-nginx"
   })
 }
 
 # aws_iam_role_policy
 resource "aws_iam_role_policy" "allow_s3_all" {
- name = "${local.naming_prefix}-allow_s3_all"
+  name = "${local.naming_prefix}-allow_s3_all"
   role = aws_iam_role.allow_nginx_s3.name
 
   policy = <<EOF

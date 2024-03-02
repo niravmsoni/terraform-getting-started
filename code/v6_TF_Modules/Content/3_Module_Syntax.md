@@ -47,3 +47,4 @@ output "bucket_id"{
     value = aws_s3_bucket.bucket.id
 }
 ```
+- VPC Module for AWS [here](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest)

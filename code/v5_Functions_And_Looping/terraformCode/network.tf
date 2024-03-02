@@ -15,13 +15,15 @@ data "aws_availability_zones" "available" {
 resource "aws_vpc" "app" {
   cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = var.enable_dns_hostnames
-  tags                 = local.common_tags
+  tags                 = merge(local.common_tags, {Name = "${local.naming_prefix}-vpc"})
 }
 
 # Creating internet Gateway and associating with VPC (Using VPC Id)
 resource "aws_internet_gateway" "app" {
   vpc_id = aws_vpc.app.id
-  tags   = local.common_tags
+tags = merge(local.common_tags, {
+    Name = "${local.naming_prefix}-igw"
+  })
 }
 
 # Creating both subnets (Using Count)
@@ -30,7 +32,9 @@ resource "aws_subnet" "public_subnets" {
   cidr_block              = cidrsubnet(var.vpc_cidr_block, 8, count.index)
   vpc_id                  = aws_vpc.app.id
   map_public_ip_on_launch = var.map_public_ip_on_launch
-  tags                    = local.common_tags
+  tags = merge(local.common_tags, {
+    Name = "${local.naming_prefix}-subnet-${count.index}"
+  })
   availability_zone = data.aws_availability_zones.available.names[count.index]
 }
 
@@ -60,7 +64,9 @@ resource "aws_route_table" "app" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.app.id
   }
-  tags = local.common_tags
+  tags = merge(local.common_tags, {
+    Name = "${local.naming_prefix}-rtb"
+  })
 }
 
 # Associating route table with both subnets (Using Count)
@@ -85,7 +91,7 @@ resource "aws_route_table_association" "app_public_subnets" {
 # SECURITY GROUPS #
 # Creating Security group inside VPC
 resource "aws_security_group" "nginx_sg" {
-  name   = "nginx_sg"
+name   = "${local.naming_prefix}-nginx_sg"
   vpc_id = aws_vpc.app.id
   tags   = local.common_tags
 
@@ -109,7 +115,7 @@ resource "aws_security_group" "nginx_sg" {
 
 # Provisioning Security group for Load balancer
 resource "aws_security_group" "alb_sg" {
-  name   = "nginx_alb_sg"
+name   = "${local.naming_prefix}-nginx_alb_sg"
   vpc_id = aws_vpc.app.id
   tags   = local.common_tags
 

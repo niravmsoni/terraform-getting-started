@@ -3,7 +3,7 @@ data "aws_elb_service_account" "root" {}
 
 #aws_lb
 resource "aws_lb" "nginx" {
-  name               = "nirav-web-alb"
+name               = "${local.naming_prefix}-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb_sg.id]
@@ -22,7 +22,7 @@ resource "aws_lb" "nginx" {
 
 #aws_lb_target_group
 resource "aws_lb_target_group" "nginx" {
-  name     = "nirav-web-alb"
+ name     = "${local.naming_prefix}-alb-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.app.id
@@ -41,7 +41,9 @@ resource "aws_lb_listener" "nginx" {
     target_group_arn = aws_lb_target_group.nginx.arn
   }
 
-  tags = local.common_tags
+ tags = merge(local.common_tags, {
+    Name = "${local.naming_prefix}-nginx"
+  })
 }
 
 #aws_lb_target_group_attachment

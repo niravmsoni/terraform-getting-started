@@ -7,3 +7,4 @@
   - [Resiliency](code/v3_Add_Resiliency/README.MD)
   - [Version 4](code/v4_Further_Updates/README.md)
   - [Functions and Looping](code/v5_Functions_And_Looping/README.md)
+  - [TF Modules](code/v6_TF_Modules/Readme.md)

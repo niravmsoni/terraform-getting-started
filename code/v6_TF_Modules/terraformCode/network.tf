@@ -153,7 +153,7 @@ resource "aws_security_group" "nginx_sg" {
 # Provisioning Security group for Load balancer
 resource "aws_security_group" "alb_sg" {
   name   = "${local.naming_prefix}-nginx_alb_sg"
-  vpc_id = aws_vpc.app.id
+  vpc_id = module.app.vpc_id
   tags   = local.common_tags
 
   # HTTP access from anywhere

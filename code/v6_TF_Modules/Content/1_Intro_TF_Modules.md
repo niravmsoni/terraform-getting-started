@@ -16,3 +16,9 @@
         - Modules on registry are versioned the same way the providers are versioned
     - Terraform init - Downloads module from registry to working directory
     - Modules inherit defined providers
+    - The only way for parent module to pass information to child module is through Input variables
+    - Child module has no access to local values, resource attributes OR input variable of parent module
+    - Vice-versa - Parent module has no access to local values, data sources and resource attributes of child module
+    - Only way to pass information back to parent module is through output values
+    - Consider a module as a Black Box with well-defined inputs and outputs
+    

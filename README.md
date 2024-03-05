@@ -1,6 +1,6 @@
 # Terraform-getting-started
 - [Getting started with IaC](Getting-Started.md)
-- [Terraform](TerraformBasics.md)
+- [All about Terraform](TerraformBasics.md)
 - Updates
   - [Barebones setup](code/v1_Bare_Bones_HardCoded_Setup/README.md)
   - [Inputs and Variables](code/v2_using_Inputs_Variables_Outputs/README.MD)
